@@ -8,3 +8,29 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 #검증 방법(어떤 명령으로 무엇을 확인했는지) + 결과 위치 링크
 #트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)7
 #기술 문서만 읽어도 전체 수행 내용을 파악할 수 있어야 한다.
+
+
+## 1) 실행 환경
+- OS: Ubuntu 22.04     ---> Unix 환경이나 window 환경이나 정의
+- Shell: bash
+- Docker: 26.x
+- Git: 2.x
+
+## 2) 수행 체크리스트
+- [x] 터미널 기본 조작 및 폴더 구성
+- [x] 권한 변경 실습
+- [x] Docker 설치/점검
+- [x] hello-world 실행
+- [x] Dockerfile 빌드/실행
+- [x] 포트 매핑 접속(2회)
+- [x] 바인드 마운트 반영
+- [x] 볼륨 영속성
+- [x] Git 설정 + VSCode GitHub 연동
+
+ ## 3) 수행 로그(발췌)
+bash$ pwd
+/home/user
+$ mkdir -p ~/codyssey/practice
+$ ls -la
+...
+
