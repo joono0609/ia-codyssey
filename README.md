@@ -55,6 +55,7 @@ Docker 기본 운영 명령 수행
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
 - [x] 권한 변경 실습
+<pre>
 
 wsl --install -d Ubuntu-22.04  우분튜 설치
 
@@ -73,7 +74,7 @@ drwx------ 2 codyssey codyssey 4096 Oct 30 15:03 .cache
 -rw------- 1 codyssey codyssey 1531 Oct 30 15:15 .viminfo
 drwxr-xr-x 2 codyssey codyssey 4096 Oct 30 15:23 practice
 
-
+</pre>
      
 - [x] Docker 설치/점검
 - [x] hello-world 실행
