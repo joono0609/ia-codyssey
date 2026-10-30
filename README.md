@@ -46,10 +46,44 @@ Docker 기본 운영 명령 수행
 
 
 ## 1) 실행 환경
-- OS: Ubuntu 22.04     ---> Unix 환경이나 window 환경이나 정의
+- OS: Ubuntu 22.04     
 - Shell: bash
 - Docker: 26.x
 - Git: 2.56
+
+
+## 2) 수행 체크리스트
+- [x] 터미널 기본 조작 및 폴더 구성
+- [x] 권한 변경 실습
+
+wsl --install -d Ubuntu-22.04  우분튜 설치
+
+codyssey@4F-61:~$ pwd
+/home/codyssey
+
+codyssey@4F-61:~$ mkdir ./practice
+codyssey@4F-61:~$ ls -al
+total 32
+drwxr-x--- 4 codyssey codyssey 4096 Oct 30 15:23 .
+drwxr-xr-x 3 root     root     4096 Oct 30 15:03 ..
+-rw-r--r-- 1 codyssey codyssey  220 Oct 30 15:03 .bash_logout
+-rw-r--r-- 1 codyssey codyssey 3771 Oct 30 15:03 .bashrc
+drwx------ 2 codyssey codyssey 4096 Oct 30 15:03 .cache
+-rw-r--r-- 1 codyssey codyssey  807 Oct 30 15:03 .profile
+-rw------- 1 codyssey codyssey 1531 Oct 30 15:15 .viminfo
+drwxr-xr-x 2 codyssey codyssey 4096 Oct 30 15:23 practice
+
+
+     
+- [x] Docker 설치/점검
+- [x] hello-world 실행
+- [x] Dockerfile 빌드/실행
+- [x] 포트 매핑 접속(2회)
+- [x] 바인드 마운트 반영
+- [x] 볼륨 영속성
+- [x] Git 설정 + VSCode GitHub 연동
+
+
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
