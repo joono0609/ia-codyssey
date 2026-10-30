@@ -17,7 +17,7 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 #실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
 
 wsl --install -d Ubuntu-22.04
-
+==> id/passwd codyssey
 
 
 #수행 항목 체크리스트(터미널/권한/Docker/Dockerfile/포트/볼륨/Git/GitHub)
