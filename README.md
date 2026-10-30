@@ -36,7 +36,7 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 - OS: Ubuntu 22.04     ---> Unix 환경이나 window 환경이나 정의
 - Shell: bash
 - Docker: 26.x
-- Git: 2.x
+- Git: 2.56
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
