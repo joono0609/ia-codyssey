@@ -16,11 +16,24 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 
 #실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
 
-윈도우 환경이나 리눅스 환경에 따라 명령어가 달라짐으로 아래 항목의 script 가 달려집니다.
+wsl --install -d Ubuntu-22.04
+
+
 
 #수행 항목 체크리스트(터미널/권한/Docker/Dockerfile/포트/볼륨/Git/GitHub)
 
-윈도우에는 chmod 가 없고 별도 있는것으로 알고 있음 
+윈도우에는 chmod 가 없고 별도 있는것으로 알고 있음 -> wsl 이용 우분튜 설치
+
+Docker 설치 및 기본 점검
+Docker 버전 확인 결과를 기록한다. (docker --version)
+Docker 데몬 동작 여부 확인 결과를 기록한다. (docker info 또는 동등 점검)
+Docker 기본 운영 명령 수행
+이미지: 다운로드/목록 확인 (예: docker images)
+컨테이너: 실행/중지/목록 확인 (예: docker ps, docker ps -a)
+운영: 로그 확인 (예: docker logs), 리소스 확인 (예: docker stats)
+수행 명령과 출력 결과를 기술 문서에 남긴다.
+
+
 
 #검증 방법(어떤 명령으로 무엇을 확인했는지) + 결과 위치 링크
 
