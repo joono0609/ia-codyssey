@@ -148,6 +148,16 @@ https://docs.docker.com/go/wsl2/
 codyssey@4F-29:/mnt/c/WINDOWS/system32$ docker --version
 Docker version 29.9.2, build a82e528
 
+docker info 와 docker run hello-world 실행시 에러 발생 
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+
+1. 내 계정을 docker 그룹에 추가
+sudo usermod -aG docker $USER
+2. 그룹 추가는 새 세션부터 적용돼요. 그래서 WSL을 완전히 재시작해야 해요.
+exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown으로 완전히 껐다 켜는 걸 추천해요!
+
+3단계: 확인
+WSL 터미널을 다시 열고: 에러난거 다시 실행
 
 
 - [x] hello-world 실행
