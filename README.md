@@ -58,13 +58,21 @@ Docker 기본 운영 명령 수행
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
+
+codyssey@4F-61:~$ pwd
+/home/codyssey/codyssey
+
+codyssey@4F-61:~$ mkdir ./practice
+
+
+
 - [x] 권한 변경 실습
 <pre>
 
 wsl --install -d Ubuntu-22.04  우분튜 설치
 
 codyssey@4F-61:~$ pwd
-/home/codyssey
+/home/codyssey/codyssey
 
 codyssey@4F-61:~$ mkdir ./practice
 codyssey@4F-61:~$ ls -al
