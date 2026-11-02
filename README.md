@@ -154,13 +154,42 @@ permission denied while trying to connect to the docker API at unix:///var/run/d
 1. 내 계정을 docker 그룹에 추가
 sudo usermod -aG docker $USER
 2. 그룹 추가는 새 세션부터 적용돼요. 그래서 WSL을 완전히 재시작해야 해요.
-exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown으로 완전히 껐다 켜는 걸 추천해요!
+exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown으로 완전히 껐다 켜는 걸 추천 
 
 3단계: 확인
 WSL 터미널을 다시 열고: 에러난거 다시 실행
+docker info
+
+
 
 
 - [x] hello-world 실행
+
+<pre>
+codyssey@4F-29:~/codyssey/practice$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</pre>
+
 - [x] Dockerfile 빌드/실행
 - [x] 포트 매핑 접속(2회)
 - [x] 바인드 마운트 반영
