@@ -263,6 +263,76 @@ codyssey@4F-29:~/codyssey/1st-docker-app$ docker run -d -p 8080:80 1st-web-app
 - [x] Git 설정 + VSCode GitHub 연동
 
 
+# 이름 설정
+git config --global user.name "Juno"
+
+# 이메일 설정 (GitHub 계정 이메일과 동일하게)
+git config --global user.email "your-email@example.com" -- 설정안함
+
+# 설정 확인
+git config --list
+
+Git 초기화: 터미널에 git init을 입력하여 현재 폴더를 Git 저장소로 만듭니다.
+파일 상태 확인: git status를 입력하면 현재 추적되지 않은 파일들이 보입니다.
+
+codyssey@4F-29:~/codyssey/1st-docker-app$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/codyssey/codyssey/1st-docker-app/.git/
+
+git status  -- 저장된 파일들이 나온다./1st-docker-app/ 에 있는 
+
+3. Docker 관련 주의사항 (.gitignore)
+Docker를 사용하면 node_modules, 로그 파일, 혹은 빌드 결과물 등 GitHub에 올릴 필요가 없는 무거운 파일들이 생길 수 있습니다. 이를 제외하기 위해 .gitignore 파일을 만들어야 합니다.
+
+<pre>
+# Docker 관련 제외
+.dockerignore
+# 노드 패키지 (Node.js 사용 시)
+node_modules/
+# 빌드 결과물
+dist/
+# 환경변수 파일 (보안 중요!)
+.env
+</pre>
+
+4. GitHub 원격 저장소 연결하기
+GitHub에서 새로운 Repository(저장소)를 만듭니다.
+생성된 저장소의 주소(HTTPS 주소)를 복사합니다.
+VS Code 터미널에서 아래 명령어를 입력하여 연결합니다.
+<pre>
+# 원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
+git remote add origin https://github.com/사용자이름/저장소이름.git
+- joono0609
+# 브랜치 이름을 main으로 변경 (최신 기본값)
+git branch -M main
+</pre>
+
+5. 파일 올리기 (Add, Commit, Push)
+이제 실제로 파일을 GitHub에 전송해 봅시다.
+
+<pre>
+     # 1. 변경된 모든 파일을 스테이징 영역에 추가
+git add .
+
+# 2. 버전 기록 (메시지는 짧고 명확하게)
+git commit -m "Initial commit: Docker setup and project files"
+
+# 3. GitHub로 전송
+git push -u origin main
+</pre>
+
+Docker 파일: Dockerfile이나 docker-compose.yml 같은 설정 파일은 GitHub에 올라가야 다른 환경에서도 똑같이 실행할 수 있습니다.
+VS Code 확장 프로그램: VS Code 왼쪽의 '소스 제어' 아이콘(세 번째 아이콘)을 클릭하면 명령어를 치지 않고도 마우스 클릭만으로 add, commit, push를 할 수 있어 편리합니다.
+
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
