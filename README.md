@@ -1,6 +1,10 @@
 # ia-codyssey
 Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다 
 
+# git 최신버전으로 윈도우 설치
+# docker 최시버전으로 윈도우amd 버전 설치
+# vscode 는 wsl 에서도 활용할 수 있게 wsl extension 설치 후 확인
+
 
 #프로젝트 개요(미션 목표 요약)
 #실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
