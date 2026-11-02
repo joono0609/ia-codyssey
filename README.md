@@ -237,6 +237,25 @@ COPY index.html /usr/share/nginx/html/index.html
 EXPOSE 80
 </pre>
 
+docker build -t 1st-web-app .
+>>>  성공
+
+docker images
+                                                                                                    i Info →   U  In Use
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+1st-web-app:latest   432af8aa689a        241MB         63.9MB
+hello-world:latest   c567b231f656       25.9kB         9.49kB    U
+
+docker run -d -p 8080:80 1st-web-app
+
+codyssey@4F-29:~/codyssey/1st-docker-app$ docker run -d -p 8080:80 1st-web-app
+2f464073f6a3cde0cff66bf1bdd2e4818a5961ff30e71a3eebfd673374653d9f
+
+<img width="1302" height="451" alt="image" src="https://github.com/user-attachments/assets/546d3074-de1b-4bfe-b429-97ccbdb2f1ea" />
+
+
+
+
 
 - [x] 포트 매핑 접속(2회)
 - [x] 바인드 마운트 반영
