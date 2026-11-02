@@ -202,7 +202,7 @@ Dockerfile = 요리 레시피 📝
 컨테이너(Container) = 냉동식품을 데워서 먹는 상태 🍽️ (실제 실행 중)
 
 index.html 생성
-
+<pre>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -219,13 +219,14 @@ index.html 생성
     </style>
 </head>
 <body>
-    <h1>🐳 Docker로 띄운 첫 웹페이지!</h1>
+    <h1>🐳 Docker로 띄운 첫 웹페이지!(Juno)</h1>
     <p>축하합니다! 컨테이너가 잘 작동하고 있어요. 🎉</p>
 </body>
 </html>
-
+</pre>
 Dockerfile 생성
 
+<pre>
 # 1. Nginx 웹서버를 기반으로 시작
 FROM nginx:latest
 
@@ -234,7 +235,7 @@ COPY index.html /usr/share/nginx/html/index.html
 
 # 3. 80번 포트를 사용한다고 알림 (문서화 목적)
 EXPOSE 80
-
+</pre>
 
 
 - [x] 포트 매핑 접속(2회)
