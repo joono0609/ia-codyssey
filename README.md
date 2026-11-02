@@ -126,6 +126,30 @@ chmod 644 chmod_manual # 소유자: 6(읽기+쓰기), 그룹/기타: 4(읽기 �
 
      
 - [x] Docker 설치/점검
+
+Docker  window amd 버전 설치 
+윈도우에서는 docker --version  버전이 나오는데 wsl(우분투) 에서는 안나옴
+[네이터대답]
+원인: Windows ↔ WSL은 별개 환경 → 연결(Integration) 필요
+해결: Docker Desktop → Settings → Resources → WSL Integration → Ubuntu 토글 ON → Apply & Restart
+(본인해결확인)WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭
+확인: WSL 터미널 새로 열고 docker --version
+
+[에러 및 수정 후 결과]
+docker --version
+
+The command 'docker' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+
+For details about using Docker Desktop with WSL 2, visit:
+
+https://docs.docker.com/go/wsl2/
+
+codyssey@4F-29:/mnt/c/WINDOWS/system32$ docker --version
+Docker version 29.9.2, build a82e528
+
+
+
 - [x] hello-world 실행
 - [x] Dockerfile 빌드/실행
 - [x] 포트 매핑 접속(2회)
