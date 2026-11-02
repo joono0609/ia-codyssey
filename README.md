@@ -191,6 +191,52 @@ For more examples and ideas, visit:
 </pre>
 
 - [x] Dockerfile 빌드/실행
+
+① Dockerfile 작성  →  ② docker build (이미지 생성)  →  ③ docker run (컨테이너 실행)
+   (설계도 작성)         (설계도로 완제품 틀 만들기)       (틀로 실제 가동!)
+
+비유로 이해하기
+
+Dockerfile = 요리 레시피 📝
+이미지(Image) = 레시피로 만든 냉동식품 🧊 (언제든 데울 수 있는 완성품)
+컨테이너(Container) = 냉동식품을 데워서 먹는 상태 🍽️ (실제 실행 중)
+
+index.html 생성
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 첫 Docker 웹페이지(Juno)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f0f8ff;
+        }
+        h1 { color: #2496ed; }
+    </style>
+</head>
+<body>
+    <h1>🐳 Docker로 띄운 첫 웹페이지!</h1>
+    <p>축하합니다! 컨테이너가 잘 작동하고 있어요. 🎉</p>
+</body>
+</html>
+
+Dockerfile 생성
+
+# 1. Nginx 웹서버를 기반으로 시작
+FROM nginx:latest
+
+# 2. 내 HTML 파일을 Nginx의 기본 폴더로 복사
+COPY index.html /usr/share/nginx/html/index.html
+
+# 3. 80번 포트를 사용한다고 알림 (문서화 목적)
+EXPOSE 80
+
+
+
 - [x] 포트 매핑 접속(2회)
 - [x] 바인드 마운트 반영
 - [x] 볼륨 영속성
