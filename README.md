@@ -276,14 +276,28 @@ codyssey@4F-29:~/codyssey/1st-docker-app$ docker run -d -p 8080:80 1st-web-app
 
 - [x] 포트 매핑 접속(2회)
 
-이미 실행 중인 컨테이너가 있다면 docker ps 명령어로 포트가 어떻게 매핑되어 있는지 확인해 보세요.
-만약 포트를 바꾸고 싶다면, 실행 중인 컨테이너를 중지(docker stop)하고 삭제(docker rm)한 뒤, 새로운 포트 번호로 다시 run 하시면 됩니다.
-docker stop container_id ## stop  
+만약 포트를 바꾸고 싶다면, 실행 중인 컨테이너를 중지(docker stop)하고 삭제(docker rm)한 뒤, 새로운 포트 번호로 다시 run 해서 처
+docker stop container_id ## stop 방법
 
 docker run -d -p 8081:80 1st-web-app   >> http://localhost:8081 에 테스트 페이지 나옴
 558d33b2f5730b599f641eb57c802d3faae431f0f7f253e520eb72fe96f5f623
+
+<img width="1916" height="555" alt="image" src="https://github.com/user-attachments/assets/977c72f9-e181-4a1e-a88b-5608657c8472" />
+
+
 docker run -d -p 8082:80 1st-web-app   >> http://localhost:8082 에 테스트 페이지 나옴
 5daf4525acc01acbbe2c4e2940becc3cf386bb1c7ad817d6c67d473668f3ba8e
+
+<img width="1911" height="457" alt="image" src="https://github.com/user-attachments/assets/fe0e91f8-723a-41a9-b095-6543cf278016" />
+
+
+
+codyssey@4F-78:~$ docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+5daf4525acc0   1st-web-app   "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   nice_keller
+558d33b2f573   1st-web-app   "/docker-entrypoint.…"   14 minutes ago   Up 14 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   upbeat_almeida
+
+
 
 - [x] 바인드 마운트 반영
 - [x] 볼륨 영속성
