@@ -5,56 +5,15 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 # docker 최시버전으로 윈도우amd 버전 설치
 # vscode 는 wsl 에서도 활용할 수 있게 wsl extension 설치 후 확인
 
-
-#프로젝트 개요(미션 목표 요약)
-#실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
-#수행 항목 체크리스트(터미널/권한/Docker/Dockerfile/포트/볼륨/Git/GitHub)
-#검증 방법(어떤 명령으로 무엇을 확인했는지) + 결과 위치 링크
-#트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)7
-#기술 문서만 읽어도 전체 수행 내용을 파악할 수 있어야 한다.
-
-
 #프로젝트 개요
 
-이 프로젝트는 우분를 이용해 파일과 권한을 조작하고 Docker desktop 으로 콘테이너를 실행 및 관리하며 직접 작성한 Dockerfile 로  NGINX 웹서버 이미지를 제작하는 실습이고 포트 매핑으로 웹페이지에 접속하고 바인드 마운트로 원본 파일 변경을 반영하고 Docker 볼륨을 통해 컨테이너 삭제 후 에도 데이터가 유지된다.
-
-#실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
-
-wsl --install -d Ubuntu-22.04
-==> id/passwd codyssey
-
-
-#수행 항목 체크리스트(터미널/권한/Docker/Dockerfile/포트/볼륨/Git/GitHub)
-
-윈도우에는 chmod 가 없고 별도 있는것으로 알고 있음 -> wsl 이용 우분튜 설치
-
-Docker 설치 및 기본 점검
-Docker 버전 확인 결과를 기록한다. (docker --version)
-Docker 데몬 동작 여부 확인 결과를 기록한다. (docker info 또는 동등 점검)
-Docker 기본 운영 명령 수행
-이미지: 다운로드/목록 확인 (예: docker images)
-컨테이너: 실행/중지/목록 확인 (예: docker ps, docker ps -a)
-운영: 로그 확인 (예: docker logs), 리소스 확인 (예: docker stats)
-수행 명령과 출력 결과를 기술 문서에 남긴다.
-
-
-
-#검증 방법(어떤 명령으로 무엇을 확인했는지) + 결과 위치 링크
-
-위 내용이 확정되지 않으면 약간 틀림
-
-#트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
-
-
-#기술 문서만 읽어도 전체 수행 내용을 파악할 수 있어야 한다.
-
+이 프로젝트는 리눅스(우분투)을 이용해 파일과 권한을 조작하고 Docker desktop 으로 직접 작성한 Dockerfile 으로  NGINX 웹서버 이미지를 제작하여 콘테이너를 실행하며 포트 매핑으로 웹페이지에 접속하고 바인드 마운트로 원본 파일 변경하면 웹페이지가 바로 반영되며 Docker 볼륨을 통해 컨테이너 삭제 후에도 데이터가 유지됨을 검증하고 Git과 GitHub로 수행 결과가 반영되는 실습을 위한 프로젝트이다.
 
 ## 1) 실행 환경
 - OS: Ubuntu 22.04     
 - Shell: bash
 - Docker: 29.9.2
 - Git: 2.56
-
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
@@ -119,8 +78,6 @@ chmod 644 chmod_manual # 소유자: 6(읽기+쓰기), 그룹/기타: 4(읽기 �
 [결과]-rw-r--r-- 1 codyssey codyssey 6463 Oct 30 15:27 chmod_manual
 
 </pre>
-
-
      
 - [x] Docker 설치/점검
 <pre>
