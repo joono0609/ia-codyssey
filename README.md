@@ -116,11 +116,11 @@ docker info 실행
 
 오류발생 :(맨끝)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 
-## 트러블 슈팅 : 우분투에서 docker info 실행시 권한 오류 발생 
-## (에러내용)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
-## 원인 및 가설 : /var/run$ ls -alF docker.sock
-## srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
-## 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
+# 트러블 슈팅 : 우분투에서 docker info 실행시 권한 오류 발생 
+# (에러내용)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+# 원인 및 가설 : /var/run$ ls -alF docker.sock
+# srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
+# 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
 </pre>
 [네이토대답]
 1. 내 계정을 docker 그룹에 추가
@@ -200,22 +200,19 @@ Dockerfile 생성
 <pre>
 # 1. Nginx 웹서버를 기반으로 시작
 FROM nginx:latest
-
 # 2. 내 HTML 파일을 Nginx의 기본 폴더로 복사
 COPY index.html /usr/share/nginx/html/index.html
-
 # 3. 80번 포트를 사용한다고 알림 (문서화 목적)
 EXPOSE 80
 </pre>
-
 docker build -t 1st-web-app .
 (참고) 026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
 
-## 트러블 슈팅 : 우분투에서 docker build 실행시 권한 오류 발생 
-## (에러내용)ERROR: failed to build: failed to solve: error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``"
-## 원인 및 가설 : 해당 PATH 에 실행할 파일이 없다고 나옴
-## 네이토질의 결과 : 설정환경이 꼬일떄 발생된다고 나오고 해결방법은 config.json 에 있는 내용을 변경
-## 해결 / 대안 : config.json 에 있는 내용을   "auths": { ... } 로 변경하니 정상작동 됨
+# 트러블 슈팅 : 우분투에서 docker build 실행시 권한 오류 발생 
+# (에러내용)ERROR: failed to build: failed to solve: error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``"
+# 원인 및 가설 : 해당 PATH 에 실행할 파일이 없다고 나옴
+# 네이토질의 결과 : 설정환경이 꼬일떄 발생된다고 나오고 해결방법은 config.json 에 있는 내용을 변경
+# 해결 / 대안 : config.json 에 있는 내용을   "auths": { ... } 로 변경하니 정상작동 됨
 
 docker images
                                                                                                     i Info →   U  In Use
@@ -260,7 +257,7 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 <pre>
 cd /home/codyssey/project/html
 
-echo !@#$%^&*()_+"<h1>Hello, Docker Bind Mount Testing!</h1>" >> index.html
+echo "<h1>Hello, Docker Bind Mount Testing!</h1>" >> index.html
 
 docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
 </pre>
