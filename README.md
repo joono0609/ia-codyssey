@@ -299,7 +299,21 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 
 - [x] 바인드 마운트 반영
 
-**바인드 마운트(Bind Mount)**는 도커 학습에서 가장 신기하고 편리한 기능으로 쉽게 말해 **"내 컴퓨터의 폴더와 컨테이너 안의 폴더를 실시간으로 연결(동기화)하는 것"**입니다.
+바인드 마운트(Bind Mount)는 도커 학습에서 가장 신기하고 편리한 기능으로 쉽게 말해 "내 컴퓨터의 폴더와 컨테이너 안의 폴더를 실시간으로 연결(동기화)하는 것 입니다.
+
+cd /home/codyssey/project/html
+
+echo '<h1>Hello, Docker Bind Mount Testing!</h1>' >> index.html
+
+docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
+
+<img width="1916" height="227" alt="image" src="https://github.com/user-attachments/assets/7b1ac4f5-9e4f-4690-8129-426cfd9eb49f" />
+
+echo '<h1>Hello, Docker Bind Mount Testing! 2026/11/03 16:52</h1>' >> index.html  -- 파일만 수정 후 http://localhost:8085 확인
+
+
+<img width="1892" height="370" alt="image" src="https://github.com/user-attachments/assets/56215d5a-91eb-4be1-af54-d6b852390689" />
+
 
 - [x] 볼륨 영속성
 - [x] Git 설정 + VSCode GitHub 연동
