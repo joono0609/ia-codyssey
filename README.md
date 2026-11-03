@@ -14,9 +14,9 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 #기술 문서만 읽어도 전체 수행 내용을 파악할 수 있어야 한다.
 
 
-#프로젝트 개요(미션 목표 요약)
+#프로젝트 개요
 
-개발에 필요한 개발환경을 직접 설치 및 실제 작동함으로서 DevOps 환경에 대해 이해도가 생겨 업무 프로세스 자동화 및 혁신하는데 도움을 주고자 합니다.
+이 프로젝트는 우분를 이용해 파일과 권한을 조작하고 Docker desktop 으로 콘테이너를 실행 및 관리하며 직접 작성한 Dockerfile 로  NGINX 웹서버 이미지를 제작하는 실습이고 포트 매핑으로 웹페이지에 접속하고 바인드 마운트로 원본 파일 변경을 반영하고 Docker 볼륨을 통해 컨테이너 삭제 후 에도 데이터가 유지된다.
 
 #실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
 
@@ -59,36 +59,25 @@ Docker 기본 운영 명령 수행
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
 
-codyssey@4F-61:~$ pwd
-/home/codyssey/codyssey
+<pre>
+wsl --install -d Ubuntu-22.04  우분튜 설치
+/mnt/c/WINDOWS/system32$ mkdir -p ~/codyssey/practice 
+우분투 설치시 사용자를 codyssey 지정해서 디렉토리 생성시 /home/codyssey 하위에 생성
+cd ~codyssey/codyssey/practice/
+pwd
+/home/codyssey/codyssey/practice
 
-codyssey@4F-61:~$ mkdir ./practice
+권한변경 실습을 위해 파일 chmod_manual 파일을 생성한다
 
+echo 'aaasasasadasdsadsdasd' >> chmod_manual
 
+</pre>
 
 - [x] 권한 변경 실습
+
 <pre>
-
-wsl --install -d Ubuntu-22.04  우분튜 설치
-
-codyssey@4F-61:~$ pwd
-/home/codyssey/codyssey
-
-codyssey@4F-61:~$ mkdir ./practice
-codyssey@4F-61:~$ ls -al
-total 32
-drwxr-x--- 4 codyssey codyssey 4096 Oct 30 15:23 .
-drwxr-xr-x 3 root     root     4096 Oct 30 15:03 ..
--rw-r--r-- 1 codyssey codyssey  220 Oct 30 15:03 .bash_logout
--rw-r--r-- 1 codyssey codyssey 3771 Oct 30 15:03 .bashrc
-drwx------ 2 codyssey codyssey 4096 Oct 30 15:03 .cache
--rw-r--r-- 1 codyssey codyssey  807 Oct 30 15:03 .profile
--rw------- 1 codyssey codyssey 1531 Oct 30 15:15 .viminfo
-drwxr-xr-x 2 codyssey codyssey 4096 Oct 30 15:23 practice
-
-
 가. 파일변환 문자 기준
-     
+
 대상 [ugoa]*: 권한을 바꿀 대상을 정합니다.
 u (user): 파일 소유자
 g (group): 그룹 사용자
