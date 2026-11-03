@@ -125,6 +125,11 @@ chmod 644 chmod_manual # 소유자: 6(읽기+쓰기), 그룹/기타: 4(읽기 �
 - [x] Docker 설치/점검
 
 Docker  window amd 버전 설치 
+
+<font color=red>* 오류내용 : 윈도우에서는 docker 가 정상적으로 설치되었지만 우분투는 설치안되었다고 나옴</font>
+원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
+해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
+
 윈도우에서는 docker --version  버전이 나오는데 wsl(우분투) 에서는 안나옴
 [네이터대답]
 원인: Windows ↔ WSL은 별개 환경 → 연결(Integration) 필요
