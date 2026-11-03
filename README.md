@@ -257,7 +257,6 @@ docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-
 </pre>
 <img width="1916" height="227" alt="image" src="https://github.com/user-attachments/assets/7b1ac4f5-9e4f-4690-8129-426cfd9eb49f" />
 <pre>
-echo "<h1>Hello, Docker Bind Mount Testing! 2026/11/03 16:52</h1>" >> index.html  -- 파일만 수정 후 http://localhost:8085 확인
 rm index.html ; echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085 에서 다시 확인하여 내용이 변경되었나 확인
      
 </pre>
