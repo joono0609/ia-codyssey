@@ -209,7 +209,7 @@ EXPOSE 80
 </pre>
 
 docker build -t 1st-web-app .
->>>  2026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
+(참고) 026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
 
 ## 트러블 슈팅 : 우분투에서 docker build 실행시 권한 오류 발생 
 ## (에러내용)ERROR: failed to build: failed to solve: error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``"
