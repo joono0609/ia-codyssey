@@ -126,9 +126,9 @@ chmod 644 chmod_manual # 소유자: 6(읽기+쓰기), 그룹/기타: 4(읽기 �
 
 Docker  window amd 버전 설치 
 
-'''* 트러블 슈팅 : 윈도우에서는 docker 가 정상적으로 설치되었지만 우분투는 설치안되었다고 나옴</font>
-원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
-해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
+## 트러블 슈팅 : 윈도우에서는 docker 가 정상적으로 설치되었지만 우분투는 설치안되었다고 나옴</font>
+## 원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
+## 해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
 
 윈도우에서는 docker --version  버전이 나오는데 wsl(우분투) 에서는 안나옴
 [네이터대답]
@@ -150,6 +150,12 @@ https://docs.docker.com/go/wsl2/
 codyssey@4F-29:/mnt/c/WINDOWS/system32$ docker --version
 Docker version 29.9.2, build a82e528
 
+## 트러블 슈팅 : 우분투에서 docker info 실행시 권한 오류 발생 
+## (에러내요)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+## 원인 및 가설 : /var/run$ ls -alF docker.sock
+## srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
+## 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
+
 docker info 와 docker run hello-world 실행시 에러 발생 
 permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 
@@ -161,9 +167,6 @@ exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown으로 �
 3단계: 확인
 WSL 터미널을 다시 열고: 에러난거 다시 실행
 docker info
-
-
-
 
 - [x] hello-world 실행
 
