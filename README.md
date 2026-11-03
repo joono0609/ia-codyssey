@@ -302,9 +302,9 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 바인드 마운트(Bind Mount)는 도커 학습에서 가장 신기하고 편리한 기능으로 쉽게 말해 "내 컴퓨터의 폴더와 컨테이너 안의 폴더를 실시간으로 연결(동기화)하는 것 입니다.
 <pre>
 cd /home/codyssey/project/html
-</pre>
+
 echo '<h1>Hello, Docker Bind Mount Testing!</h1>' >> index.html
-<pre>
+
 docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
 </pre>
 <img width="1916" height="227" alt="image" src="https://github.com/user-attachments/assets/7b1ac4f5-9e4f-4690-8129-426cfd9eb49f" />
