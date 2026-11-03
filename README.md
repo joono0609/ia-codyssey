@@ -290,16 +290,17 @@ docker run -d -p 8082:80 1st-web-app   >> http://localhost:8082 에 테스트 �
 
 <img width="1911" height="457" alt="image" src="https://github.com/user-attachments/assets/fe0e91f8-723a-41a9-b095-6543cf278016" />
 
-
-
+<pre>
 codyssey@4F-78:~$ docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                     NAMES
 5daf4525acc0   1st-web-app   "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   nice_keller
 558d33b2f573   1st-web-app   "/docker-entrypoint.…"   14 minutes ago   Up 14 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   upbeat_almeida
-
-
+</pre>
 
 - [x] 바인드 마운트 반영
+
+**바인드 마운트(Bind Mount)**는 도커 학습에서 가장 신기하고 편리한 기능으로 쉽게 말해 **"내 컴퓨터의 폴더와 컨테이너 안의 폴더를 실시간으로 연결(동기화)하는 것"**입니다.
+
 - [x] 볼륨 영속성
 - [x] Git 설정 + VSCode GitHub 연동
 
