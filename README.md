@@ -160,7 +160,7 @@ docker info 실행
 오류발생 :(맨끝)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 
 ## 트러블 슈팅 : 우분투에서 docker info 실행시 권한 오류 발생 
-## (에러내요)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+## (에러내용)permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 ## 원인 및 가설 : /var/run$ ls -alF docker.sock
 ## srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
 ## 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
@@ -240,7 +240,6 @@ index.html 생성
 </html>
 </pre>
 Dockerfile 생성
-
 <pre>
 # 1. Nginx 웹서버를 기반으로 시작
 FROM nginx:latest
@@ -253,7 +252,13 @@ EXPOSE 80
 </pre>
 
 docker build -t 1st-web-app .
->>>  성공
+>>>  2026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
+
+## 트러블 슈팅 : 우분투에서 docker build 실행시 권한 오류 발생 
+## (에러내용)ERROR: failed to build: failed to solve: error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``"
+## 원인 및 가설 : 해당 PATH 에 실행할 파일이 없다고 나옴
+## 네이토질의 결과 : 설정환경이 꼬일떄 발생된다고 나오고 해결방법은 config.json 에 있는 내용을 변경
+## 해결 / 대안 : config.json 에 있는 내용을   "auths": { ... } 로 변경하니 정상작동 됨
 
 docker images
                                                                                                     i Info →   U  In Use
@@ -269,10 +274,17 @@ codyssey@4F-29:~/codyssey/1st-docker-app$ docker run -d -p 8080:80 1st-web-app
 <img width="1302" height="451" alt="image" src="https://github.com/user-attachments/assets/546d3074-de1b-4bfe-b429-97ccbdb2f1ea" />
 
 
-
-
-
 - [x] 포트 매핑 접속(2회)
+
+이미 실행 중인 컨테이너가 있다면 docker ps 명령어로 포트가 어떻게 매핑되어 있는지 확인해 보세요.
+만약 포트를 바꾸고 싶다면, 실행 중인 컨테이너를 중지(docker stop)하고 삭제(docker rm)한 뒤, 새로운 포트 번호로 다시 run 하시면 됩니다.
+docker stop container_id ## stop  
+
+docker run -d -p 8081:80 1st-web-app   >> http://localhost:8081 에 테스트 페이지 나옴
+558d33b2f5730b599f641eb57c802d3faae431f0f7f253e520eb72fe96f5f623
+docker run -d -p 8082:80 1st-web-app   >> http://localhost:8082 에 테스트 페이지 나옴
+5daf4525acc01acbbe2c4e2940becc3cf386bb1c7ad817d6c67d473668f3ba8e
+
 - [x] 바인드 마운트 반영
 - [x] 볼륨 영속성
 - [x] Git 설정 + VSCode GitHub 연동
