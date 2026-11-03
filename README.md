@@ -86,9 +86,9 @@ docker --version
      
 윈도우에서는 docker --version  버전이 나오는데 wsl(우분투) 에서는 안나옴
 
-## 트러블 슈팅 : 윈도우에서는 docker 가 정상적으로 설치되었지만 우분투는 설치안되었다고 나옴</font>
-## 원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
-## 해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
+# 트러블 슈팅 : 윈도우에서는 docker 가 정상적으로 설치되었지만 우분투는 설치안되었다고 나옴</font>
+# 원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
+# 해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
 
 /mnt/c/WINDOWS/system32$ docker --version
 Docker version 29.9.2, build a82e528
@@ -207,12 +207,6 @@ EXPOSE 80
 </pre>
 docker build -t 1st-web-app .
 (참고) 026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
-
-# 트러블 슈팅 : 우분투에서 docker build 실행시 권한 오류 발생 
-# (에러내용)ERROR: failed to build: failed to solve: error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``"
-# 원인 및 가설 : 해당 PATH 에 실행할 파일이 없다고 나옴
-# 네이토질의 결과 : 설정환경이 꼬일떄 발생된다고 나오고 해결방법은 config.json 에 있는 내용을 변경
-# 해결 / 대안 : config.json 에 있는 내용을   "auths": { ... } 로 변경하니 정상작동 됨
 
 docker images
                                                                                                     i Info →   U  In Use
