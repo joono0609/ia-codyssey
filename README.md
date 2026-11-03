@@ -260,7 +260,7 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 <pre>
 cd /home/codyssey/project/html
 
-echo '<h1>Hello, Docker Bind Mount Testing!</h1>' >> index.html
+echo '</h1>Hello, Docker Bind Mount Testing!<//h1>' >> index.html
 
 docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
 </pre>
