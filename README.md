@@ -1,10 +1,3 @@
-# ia-codyssey
-Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다 
-
-# git 최신버전으로 윈도우 설치
-# docker 최시버전으로 윈도우amd 버전 설치
-# vscode 는 wsl 에서도 활용할 수 있게 wsl extension 설치 후 확인
-
 #프로젝트 개요
 
 이 프로젝트는 리눅스(우분투)을 이용해 파일과 권한을 조작하고 Docker desktop 으로 직접 작성한 Dockerfile 으로  NGINX 웹서버 이미지를 제작하여 콘테이너를 실행하며 포트 매핑으로 웹페이지에 접속하고 바인드 마운트로 원본 파일 변경하면 웹페이지가 바로 반영되며 Docker 볼륨을 통해 컨테이너 삭제 후에도 데이터가 유지됨을 검증하고 Git과 GitHub로 수행 결과가 반영되는 실습을 위한 프로젝트이다.
@@ -14,6 +7,22 @@ Github 와 codyssey 와 연동하기 위해 만들어진 Repository 입니다
 - Shell: bash
 - Docker: 29.9.2
 - Git: 2.56
+
+## 우분투 설치
+(script)wsl --install -d Ubuntu-22.04  우분튜 설치
+
+(결과)
+<img width="1216" height="370" alt="image" src="https://github.com/user-attachments/assets/d79dee14-1da4-4b46-b654-545d1357a7ff" />
+
+
+## 우분투 Docker.Desktop , Git , Vscode 설치
+
+(script) winget install --id Docker.DockerDesktop -e --accept-source-agreements --accept-package-agreements; 
+winget install --id Git.Git -e --accept-source-agreements --accept-package-agreements; 
+winget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --accept-package-agreements
+
+(결과)
+<img width="1542" height="837" alt="image" src="https://github.com/user-attachments/assets/737c4d2b-ee8d-41d7-81f7-cdaed3143e40" />
 
 ## 2) 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
