@@ -112,7 +112,7 @@ docker info 실행
 # srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
 # 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
 </pre>
-
+<pre>
 1. sudo usermod -aG docker $USER  // 내 계정을 docker 그룹에 추가
 2. 그룹 추가는 새 세션부터 적용되므로 WSL 재시작
 * exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown 종료 
@@ -120,7 +120,7 @@ docker info 실행
      
 docker info # 정상작동
 [info.log] 참고
-
+</pre>
 - [x] hello-world 실행
 
 <pre>
