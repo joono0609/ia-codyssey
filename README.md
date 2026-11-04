@@ -235,9 +235,11 @@ codyssey@4F-78:~$ docker ps
 
 바인드 마운트(Bind Mount)는 도커 학습에서 가장 신기하고 편리한 기능으로 쉽게 말해 "내 컴퓨터의 폴더와 컨테이너 안의 폴더를 실시간으로 연결(동기화)하는 것 입니다.
 <pre>
-cd /home/codyssey/project/html
+cd /home/codyssey/codyssey/project/html
 
-echo "[HTML작성]" >> index.html
+echo '[HTML작성]' >> index.html
+<img width="523" height="35" alt="image" src="https://github.com/user-attachments/assets/71bfae76-8e28-4f0d-8492-ea48d01d11ce" />
+
 
 docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
 </pre>
