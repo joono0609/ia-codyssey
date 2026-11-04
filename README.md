@@ -238,18 +238,19 @@ codyssey@4F-78:~$ docker ps
 cd /home/codyssey/codyssey/project/html
 
 echo '[HTML작성]' >> index.html
-<img width="523" height="35" alt="image" src="https://github.com/user-attachments/assets/71bfae76-8e28-4f0d-8492-ea48d01d11ce" />
+<img width="423" height="25" alt="image" src="https://github.com/user-attachments/assets/71bfae76-8e28-4f0d-8492-ea48d01d11ce" />
 
 
 docker run -d -p 8085:80 -v $(pwd):/usr/share/nginx/html --name mount1-test 1st-web-app
 </pre>
 <img width="1916" height="227" alt="image" src="https://github.com/user-attachments/assets/7b1ac4f5-9e4f-4690-8129-426cfd9eb49f" />
 <pre>
-rm index.html ; echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085 에서 다시 확인하여 내용이 변경되었나 확인
-     
-</pre>
+echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085 에서 다시 확인하여 내용이 변경되었나 확인
+<img width="423" height="25" alt="image" src="https://github.com/user-attachments/assets/2f7d1eac-f584-4ef7-be43-7f5aadca02d2" />
 
-<img width="1892" height="370" alt="image" src="https://github.com/user-attachments/assets/56215d5a-91eb-4be1-af54-d6b852390689" />
+</pre>
+<img width="1912" height="292" alt="image" src="https://github.com/user-attachments/assets/a70fce47-26cc-4901-9f6c-947a83593597" />
+
 
 - [x] 볼륨 영속성
 - [x] Git 설정 + VSCode GitHub 연동
