@@ -253,6 +253,11 @@ echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085
 
 
 - [x] 볼륨 영속성
+
+도커에서 **'영속성(Persistence)'**이라는 말은 아주 중요합니다. 쉽게 말해 **"컨테이너가 삭제되어도 데이터는 사라지지 않고 유지되는 성질"**을 뜻합니다.
+도커 컨테이너는 기본적으로 '쓰고 버리는' 일회용품 같은 존재입니다. 컨테이너를 삭제하면 그 안에서 생성했던 파일이나 데이터베이스의 데이터도 모두 함께 사라지죠. 이를 방지하기 위해 사용하는 것이 바로 **볼륨(Volume)**과 **바인드 마운트(Bind Mount)**입니다.
+
+
 - [x] Git 설정 + VSCode GitHub 연동
 
 
@@ -325,23 +330,4 @@ git push -u origin main
 
 Docker 파일: Dockerfile이나 docker-compose.yml 같은 설정 파일은 GitHub에 올라가야 다른 환경에서도 똑같이 실행할 수 있습니다.
 VS Code 확장 프로그램: VS Code 왼쪽의 '소스 제어' 아이콘(세 번째 아이콘)을 클릭하면 명령어를 치지 않고도 마우스 클릭만으로 add, commit, push를 할 수 있어 편리합니다.
-
-
-## 2) 수행 체크리스트
-- [x] 터미널 기본 조작 및 폴더 구성
-- [x] 권한 변경 실습
-- [x] Docker 설치/점검
-- [x] hello-world 실행
-- [x] Dockerfile 빌드/실행
-- [x] 포트 매핑 접속(2회)
-- [x] 바인드 마운트 반영
-- [x] 볼륨 영속성
-- [x] Git 설정 + VSCode GitHub 연동
-
- ## 3) 수행 로그(발췌)
-bash$ pwd
-/home/user
-$ mkdir -p ~/codyssey/practice
-$ ls -la
-...
 
