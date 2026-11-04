@@ -297,7 +297,7 @@ docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
 
 
 # 이름 설정
-git config --global user.name "Juno"
+git config --global user.name "joono0609"
 
 # 이메일 설정 (GitHub 계정 이메일과 동일하게)
 git config --global user.email "your-email@example.com" -- 설정안함
