@@ -99,26 +99,7 @@ docker --version
 # 원인 및 가설 : 윈도우에 설치 되었기 때문에 환경에 다른 우분투에서 안나오기 때문에 연결이 작업이 필요하다고 네이토가 답변함
 # 해결 / 대안 : WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭 후 정상확인됨
 
-/mnt/c/WINDOWS/system32$ docker --version
-Docker version 29.9.2, build a82e528
-     
-[네이터대답]
-원인: Windows ↔ WSL은 별개 환경 → 연결(Integration) 필요
-해결: Docker Desktop → Settings → Resources → WSL Integration → Ubuntu 토글 ON → Apply & Restart
-(본인해결확인)WSL integration > Enable integration with additional distros 에서 Ubuntu-22.04 선택 후 Apply & Restart Engine 클릭
-확인: WSL 터미널 새로 열고 docker --version
-
-[에러 및 수정 후 결과]
-docker --version
-
-The command 'docker' could not be found in this WSL 2 distro.
-We recommend to activate the WSL integration in Docker Desktop settings.
-
-For details about using Docker Desktop with WSL 2, visit:
-
-https://docs.docker.com/go/wsl2/
-
-codyssey@4F-29:/mnt/c/WINDOWS/system32$ docker --version
+codyssey@4F-76:~/codyssey/practice$ docker --version
 Docker version 29.9.2, build a82e528
 
 docker info 실행
@@ -131,15 +112,14 @@ docker info 실행
 # srw-rw---- 1 root docker 0 Nov  3 14:26 docker.sock=   그룹에게만 write 권한을 주고 있는데 codyssey 는 같은 그룹이 아님
 # 해결 / 대안 : 네이토 질의에도 그룹유저 권한이 지정하라고 나와서  sudo usermod -aG docker $USER 후 wsl 재시작 확인하니 정상처리 됨
 </pre>
-[네이토대답]
-1. 내 계정을 docker 그룹에 추가
-sudo usermod -aG docker $USER
-2. 그룹 추가는 새 세션부터 적용돼요. 그래서 WSL을 완전히 재시작해야 해요.
-exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown으로 완전히 껐다 켜는 걸 추천 
-3단계: 확인
-WSL 터미널을 다시 열고: 에러난거 다시 실행
+
+1. sudo usermod -aG docker $USER  // 내 계정을 docker 그룹에 추가
+2. 그룹 추가는 새 세션부터 적용되므로 WSL 재시작
+* exit로 터미널만 닫는 건 부족할 수 있어서, wsl --shutdown 종료 
+3. WSL 터미널을 다시 열고: 에러난거 다시 실행
      
 docker info # 정상작동
+[info.log] 참고
 
 - [x] hello-world 실행
 
@@ -182,7 +162,7 @@ Dockerfile = 요리 레시피 📝
 이미지(Image) = 레시피로 만든 냉동식품 🧊 (언제든 데울 수 있는 완성품)
 컨테이너(Container) = 냉동식품을 데워서 먹는 상태 🍽️ (실제 실행 중)
 
-index.html 생성
+index.html 생성(Vscode)
 <pre>
 <!DOCTYPE html>
 <html lang="ko">
@@ -205,7 +185,7 @@ index.html 생성
 </body>
 </html>
 </pre>
-Dockerfile 생성
+Dockerfile 생성(Vscode)
 <pre>
 # 1. Nginx 웹서버를 기반으로 시작
 FROM nginx:latest
