@@ -254,8 +254,35 @@ echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085
 
 - [x] 볼륨 영속성
 
-도커에서 **'영속성(Persistence)'**이라는 말은 아주 중요합니다. 쉽게 말해 **"컨테이너가 삭제되어도 데이터는 사라지지 않고 유지되는 성질"**을 뜻합니다.
-도커 컨테이너는 기본적으로 '쓰고 버리는' 일회용품 같은 존재입니다. 컨테이너를 삭제하면 그 안에서 생성했던 파일이나 데이터베이스의 데이터도 모두 함께 사라지죠. 이를 방지하기 위해 사용하는 것이 바로 **볼륨(Volume)**과 **바인드 마운트(Bind Mount)**입니다.
+<pre>
+도커에서 영속성(Persistence)이라는 말은 아주 중요합니다. 컨테이너가 삭제되어도 데이터는 사라지지 않고 유지되는 성질을 뜻합니다.
+도커 컨테이너는 기본적으로 '쓰고 버리는' 일회용품 같은 존재입니다. 컨테이너를 삭제하면 그 안에서 생성했던 파일이나 데이터베이스의 데이터도 모두 함께 사라지죠. 이를 방지하기 위해 사용하는 것이 바로 볼륨(Volume)과 바인드 마운트(Bind Mount)입니다.
+
+- 영속성을 유지하는 두 가지 방법
+① 도커 볼륨 (Docker Volumes) - 도커가 관리
+도커가 내 컴퓨터의 특정 구역을 알아서 관리하는 방식입니다. 가장 권장되는 방식입니다.
+특징: 데이터가 어디에 저장되는지 사용자가 신경 쓸 필요가 없습니다. 도커가 안전하게 관리합니다.
+장점: 도커 명령어로 관리하기 쉽고, 백업이나 이동이 편리합니다.
+
+# 1. 볼륨 생성
+docker volume create my-db-data
+# 2. 볼륨을 컨테이너에 연결해서 실행
+docker run -d -v my-db-data:/var/lib/mysql mysql
+
+② 바인드 마운트 (Bind Mounts) - 사용자가 관리
+지난번에 실습하신 것처럼, 내 컴퓨터의 특정 폴더 경로를 직접 지정해서 연결하는 방식입니다.
+특징: 내가 눈으로 볼 수 있는 폴더(C:\project 등)를 직접 연결합니다.
+장점: 소스 코드를 수정하고 바로 반영해야 하는 개발 환경에서 매우 유리합니다.
+
+docker run -d -v /home/user/html:/usr/share/nginx/html nginx
+</pre>
+
+볼륨을 사용해 컨테이너 실행: docker run -d -v my-data:/data --name test alpine tail -f /dev/null
+컨테이너 안에 파일 만들기: docker exec test touch /data/hello.txt
+컨테이너 삭제: docker rm -f test
+새 컨테이너를 같은 볼륨으로 실행: docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
+파일 확인: docker exec test2 ls /data -> hello.txt가 그대로 남아있다면 성공!
+
 
 
 - [x] Git 설정 + VSCode GitHub 연동
