@@ -300,7 +300,7 @@ docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
 git config --global user.name "joono0609"
 
 # 이메일 설정 (GitHub 계정 이메일과 동일하게)
-git config --global user.email "your-email@example.com" -- 설정안함
+git config --global user.email "leesj69@gmail.com" 
 
 # 설정 확인
 git config --list
@@ -343,7 +343,7 @@ GitHub에서 새로운 Repository(저장소)를 만듭니다.
 VS Code 터미널에서 아래 명령어를 입력하여 연결합니다.
 <pre>
 # 원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
-git remote add origin https://github.com/사용자이름/저장소이름.git
+git remote add origin https://github.com/joono0609/ia-codyssey.git
 - joono0609
 # 브랜치 이름을 main으로 변경 (최신 기본값)
 git branch -M main
@@ -358,7 +358,11 @@ git add .
 
 # 2. 버전 기록 (메시지는 짧고 명확하게)
 git commit -m "Initial commit: Docker setup and project files"
+-- 이메일 지정하고 다시 하니 아래 화면이 나옴
 
+<img width="1537" height="502" alt="image" src="https://github.com/user-attachments/assets/215f1f6e-b6fb-43de-8c28-d430f7b05325" />
+
+     
 # 3. GitHub로 전송
 git push -u origin main
 </pre>
