@@ -162,7 +162,7 @@ Dockerfile = 요리 레시피 📝
 이미지(Image) = 레시피로 만든 냉동식품 🧊 (언제든 데울 수 있는 완성품)
 컨테이너(Container) = 냉동식품을 데워서 먹는 상태 🍽️ (실제 실행 중)
 
-index.html 생성(Vscode)
+index.html 생성
 <pre>
 <!DOCTYPE html>
 <html lang="ko">
@@ -185,7 +185,7 @@ index.html 생성(Vscode)
 </body>
 </html>
 </pre>
-Dockerfile 생성(Vscode)
+Dockerfile 생성
 <pre>
 # 1. Nginx 웹서버를 기반으로 시작
 FROM nginx:latest
@@ -195,7 +195,6 @@ COPY index.html /usr/share/nginx/html/index.html
 EXPOSE 80
 </pre>
 docker build -t 1st-web-app .
-(참고) 026.11.2 에 할때는 성공하였으나 2026.11.3 애 할때는 build 오류 발생
 
 docker images
                                                                                                     i Info →   U  In Use
@@ -229,9 +228,7 @@ docker run -d -p 8082:80 1st-web-app   >> http://localhost:8082 에 테스트 �
 
 <pre>
 codyssey@4F-78:~$ docker ps
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                     NAMES
-5daf4525acc0   1st-web-app   "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   nice_keller
-558d33b2f573   1st-web-app   "/docker-entrypoint.…"   14 minutes ago   Up 14 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   upbeat_almeida
+<img width="1685" height="635" alt="image" src="https://github.com/user-attachments/assets/abf94083-837e-43e6-b89b-823dcd6db3a7" />
 </pre>
 
 - [x] 바인드 마운트 반영
