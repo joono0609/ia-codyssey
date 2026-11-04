@@ -256,7 +256,8 @@ echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085
 
 <pre>
 도커에서 영속성(Persistence)이라는 말은 아주 중요합니다. 컨테이너가 삭제되어도 데이터는 사라지지 않고 유지되는 성질을 뜻합니다.
-도커 컨테이너는 기본적으로 '쓰고 버리는' 일회용품 같은 존재입니다. 컨테이너를 삭제하면 그 안에서 생성했던 파일이나 데이터베이스의 데이터도 모두 함께 사라지죠. 이를 방지하기 위해 사용하는 것이 바로 볼륨(Volume)과 바인드 마운트(Bind Mount)입니다.
+도커 컨테이너는 기본적으로 '쓰고 버리는' 일회용품 같은 존재입니다. 컨테이너를 삭제하면 그 안에서 생성했던 파일이나 데이터베이스의 
+데이터도 모두 함께 사라지죠. 이를 방지하기 위해 사용하는 것이 바로 볼륨(Volume)과 바인드 마운트(Bind Mount)입니다.
 
 - 영속성을 유지하는 두 가지 방법
 ① 도커 볼륨 (Docker Volumes) - 도커가 관리
@@ -276,13 +277,20 @@ docker run -d -v my-db-data:/var/lib/mysql mysql
 
 docker run -d -v /home/user/html:/usr/share/nginx/html nginx
 </pre>
+<pre>
+(1) 볼륨을 사용해 컨테이너 실행 
+docker run -d -v my-data:/data --name test alpine tail -f /dev/null
+(2) 컨테이너 안에 파일 만들기
+docker exec test touch /data/hello.txt
+(3) 컨테이너 삭제
+docker rm -f test
+(4) 새 컨테이너를 같은 볼륨으로 실행
+docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
+(5) 파일 확인: docker exec test2 ls /data 
+[결과]hello.txt가 그대로 남아있다면 성공
+</pre>
 
-볼륨을 사용해 컨테이너 실행: docker run -d -v my-data:/data --name test alpine tail -f /dev/null
-컨테이너 안에 파일 만들기: docker exec test touch /data/hello.txt
-컨테이너 삭제: docker rm -f test
-새 컨테이너를 같은 볼륨으로 실행: docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
-파일 확인: docker exec test2 ls /data -> hello.txt가 그대로 남아있다면 성공!
-
+<img width="1880" height="223" alt="image" src="https://github.com/user-attachments/assets/5e960238-05f7-4a6b-bf34-fbd98e6f0556" />
 
 
 - [x] Git 설정 + VSCode GitHub 연동
