@@ -365,6 +365,15 @@ git commit -m "Initial commit: Docker setup and project files"
      
 # 3. GitHub로 전송
 git push -u origin main
+
+codyssey@4F-76:~/codyssey$ git push -u origin main
+Username for 'https://github.com': leesj69@gmail.com
+Password for 'https://leesj69%40gmail.com@github.com':
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
+
+
+
 </pre>
 
 Docker 파일: Dockerfile이나 docker-compose.yml 같은 설정 파일은 GitHub에 올라가야 다른 환경에서도 똑같이 실행할 수 있습니다.
