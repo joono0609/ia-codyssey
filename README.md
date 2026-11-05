@@ -296,13 +296,13 @@ docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
 - [x] Git 설정 + VSCode GitHub 연동
 
 
-# 이름 설정
+- 이름 설정
 git config --global user.name "joono0609"
 
-# 이메일 설정 (GitHub 계정 이메일과 동일하게)
+- 이메일 설정 (GitHub 계정 이메일과 동일하게)
 git config --global user.email "leesj69@gmail.com" 
 
-# 설정 확인
+- 설정 확인
 git config --list
 
 Git 초기화: 터미널에 git init을 입력하여 현재 폴더를 Git 저장소로 만듭니다.
@@ -323,7 +323,7 @@ Initialized empty Git repository in /home/codyssey/codyssey/1st-docker-app/.git/
 
 git status  -- 저장된 파일들이 나온다./1st-docker-app/ 에 있는 
 
-3. Docker 관련 주의사항 (.gitignore)
+- Docker 관련 주의사항 (.gitignore)
 Docker를 사용하면 node_modules, 로그 파일, 혹은 빌드 결과물 등 GitHub에 올릴 필요가 없는 무거운 파일들이 생길 수 있습니다. 이를 제외하기 위해 .gitignore 파일을 만들어야 합니다.
 
 <pre>
@@ -337,47 +337,43 @@ dist/
 .env
 </pre>
 
-4. GitHub 원격 저장소 연결하기
+- GitHub 원격 저장소 연결하기
 GitHub에서 새로운 Repository(저장소)를 만듭니다.
 생성된 저장소의 주소(HTTPS 주소)를 복사합니다.
 VS Code 터미널에서 아래 명령어를 입력하여 연결합니다.
 <pre>
-# 원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
+-원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
 git remote add origin https://github.com/joono0609/ia-codyssey.git
-- joono0609
-# 브랜치 이름을 main으로 변경 (최신 기본값)
+-브랜치 이름을 main으로 변경 (최신 기본값)
 git branch -M main
 </pre>
 
-5. 파일 올리기 (Add, Commit, Push)
+- 파일 올리기 (Add, Commit, Push)
 이제 실제로 파일을 GitHub에 전송해 봅시다.
 
 <pre>
-     # 1. 변경된 모든 파일을 스테이징 영역에 추가
+가. 변경된 모든 파일을 스테이징 영역에 추가
 git add .
 
-# 2. 버전 기록 (메시지는 짧고 명확하게)
+나. 버전 기록 (메시지는 짧고 명확하게)
 git commit -m "Initial commit: Docker setup and project files"
 -- 이메일 지정하고 다시 하니 아래 화면이 나옴
 
 <img width="1537" height="502" alt="image" src="https://github.com/user-attachments/assets/215f1f6e-b6fb-43de-8c28-d430f7b05325" />
 
      
-# 3. GitHub로 전송
+다. GitHub로 전송
 git push -u origin main
 
-codyssey@4F-76:~/codyssey$ git push -u origin main
-Username for 'https://github.com': leesj69@gmail.com
-Password for 'https://leesj69%40gmail.com@github.com':
-remote: Invalid username or token. Password authentication is not supported for Git operations.
+# 트러블 슈팅 : 깃에서 깃허브로 관련 파일 업로드시 권한오류 발생
+# 오류 내용   : nvalid username or token. Password authentication is not supported for Git operations.
 fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
+# 원인 및 가설 : 깃허브에서 SSH 인증키로 관리하도록 변경함
+# 해결 / 대안 : 인증키 부여 및 등록작업
 
-
-# 1. 키 만들기 (이메일은 GitHub 가입 이메일)
-ssh-keygen -t ed25519 -C "leesj69@gmail.com"
-# 저장 위치, 비밀번호, 비밀번호 확인 → 세 번 다 그냥 Enter
-
-# 2. 공개키 내용 보기 → 전체 복사 (ssh-ed25519 로 시작해서 이메일로 끝나는 한 줄)
+- 키 만들기 (이메일은 GitHub 가입 이메일)
+ssh-keygen -t ed25519 -C "leesj69@gmail.com" → 세 번 다 그냥 Enter
+- 공개키 내용 보기 → 전체 복사 (ssh-ed25519 로 시작해서 이메일로 끝나는 한 줄)
 cat ~/.ssh/id_ed25519.pub
 
 codyssey@4F-76:/mnt/c/WINDOWS/system32$ ssh-keygen -t ed25519 -C "leesj69@gmail.com"
