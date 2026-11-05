@@ -344,7 +344,7 @@ VS Code 터미널에서 아래 명령어를 입력하여 연결합니다.
 <pre>
 -원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
 git remote add origin https://github.com/joono0609/ia-codyssey.git
--브랜치 이름을 main으로 변경 (최신 기본값)
+-- 브랜치 이름을 main으로 변경 (최신 기본값)
 git branch -M main
 </pre>
 
