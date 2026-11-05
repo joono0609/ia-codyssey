@@ -401,6 +401,26 @@ The key's randomart image is:
 codyssey@4F-76:/mnt/c/WINDOWS/system32$ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgbpAcMhIaE9A00YICSdS75/hhrZ/Q7P0k70XxUaW6+ leesj69@gmail.com   
 
+
+
+
+ codyssey@5F-112:~/codyssey$ ssh -T git@github.com
+The authenticity of host 'github.com (20.200.245.247)' can't be established.
+ED25519 key fingerprint is: SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+# 3. 연결 확인. 처음엔 "Are you sure you want to continue connecting?" 나오면 yes
+ssh -T git@github.com
+
+     rm ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+rm ~/.ssh/known_hosts        # github.com 접속 기록도 같이
+ls -la ~/.ssh                # 비어 있으면 완료
+
+<img width="1217" height="630" alt="image" src="https://github.com/user-attachments/assets/fc958551-5eb3-4db6-a612-f1148b60eed0" />
+
+
+     
 </pre>
 
 Docker 파일: Dockerfile이나 docker-compose.yml 같은 설정 파일은 GitHub에 올라가야 다른 환경에서도 똑같이 실행할 수 있습니다.
