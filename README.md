@@ -265,9 +265,9 @@ echo "[HTML수정]" >> index.html  -- 파일만 수정 후 http://localhost:8085
 특징: 데이터가 어디에 저장되는지 사용자가 신경 쓸 필요가 없습니다. 도커가 안전하게 관리합니다.
 장점: 도커 명령어로 관리하기 쉽고, 백업이나 이동이 편리합니다.
 
-# 1. 볼륨 생성
+1. 볼륨 생성
 docker volume create my-db-data
-# 2. 볼륨을 컨테이너에 연결해서 실행
+2. 볼륨을 컨테이너에 연결해서 실행
 docker run -d -v my-db-data:/var/lib/mysql mysql
 
 ② 바인드 마운트 (Bind Mounts) - 사용자가 관리
