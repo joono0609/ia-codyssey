@@ -292,22 +292,20 @@ docker run -d -v my-data:/data --name test2 alpine tail -f /dev/null
 
 <img width="1880" height="223" alt="image" src="https://github.com/user-attachments/assets/5e960238-05f7-4a6b-bf34-fbd98e6f0556" />
 
-
 - [x] Git 설정 + VSCode GitHub 연동
 
-
-- 이름 설정
+(1) 이름 설정
 git config --global user.name "joono0609"
 
-- 이메일 설정 (GitHub 계정 이메일과 동일하게)
+(2) 이메일 설정 (GitHub 계정 이메일과 동일하게)
 git config --global user.email "leesj69@gmail.com" 
 
-- 설정 확인
+(3) 설정 확인
 git config --list
 
 Git 초기화: 터미널에 git init을 입력하여 현재 폴더를 Git 저장소로 만듭니다.
 파일 상태 확인: git status를 입력하면 현재 추적되지 않은 파일들이 보입니다.
-
+<pre>
 codyssey@4F-29:~/codyssey/1st-docker-app$ git init
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -320,10 +318,10 @@ hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint:   git branch -m <name>
 Initialized empty Git repository in /home/codyssey/codyssey/1st-docker-app/.git/
-
+</pre>
 git status  -- 저장된 파일들이 나온다./1st-docker-app/ 에 있는 
 
-- Docker 관련 주의사항 (.gitignore)
+(4) Docker 관련 주의사항 (.gitignore)
 Docker를 사용하면 node_modules, 로그 파일, 혹은 빌드 결과물 등 GitHub에 올릴 필요가 없는 무거운 파일들이 생길 수 있습니다. 이를 제외하기 위해 .gitignore 파일을 만들어야 합니다.
 
 <pre>
@@ -337,30 +335,28 @@ dist/
 .env
 </pre>
 
-- GitHub 원격 저장소 연결하기
+(5)  GitHub 원격 저장소 연결하기
 GitHub에서 새로운 Repository(저장소)를 만듭니다.
 생성된 저장소의 주소(HTTPS 주소)를 복사합니다.
 VS Code 터미널에서 아래 명령어를 입력하여 연결합니다.
-<pre>
--원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
-git remote add origin https://github.com/joono0609/ia-codyssey.git
--- 브랜치 이름을 main으로 변경 (최신 기본값)
-git branch -M main
-</pre>
 
-- 파일 올리기 (Add, Commit, Push)
+(6) 원격 저장소 연결 (주소 부분에 복사한 URL 붙여넣기)
+git remote add origin https://github.com/joono0609/ia-codyssey.git
+(7) 브랜치 이름을 main으로 변경 (최신 기본값)
+git branch -M main
+
+
+(8) 파일 올리기 (Add, Commit, Push)
+
 이제 실제로 파일을 GitHub에 전송해 봅시다.
 
-<pre>
 가. 변경된 모든 파일을 스테이징 영역에 추가
 git add .
 
 나. 버전 기록 (메시지는 짧고 명확하게)
 git commit -m "Initial commit: Docker setup and project files"
--- 이메일 지정하고 다시 하니 아래 화면이 나옴
 
 <img width="1537" height="502" alt="image" src="https://github.com/user-attachments/assets/215f1f6e-b6fb-43de-8c28-d430f7b05325" />
-
      
 다. GitHub로 전송
 git push -u origin main
@@ -371,11 +367,14 @@ fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
 # 원인 및 가설 : 깃허브에서 SSH 인증키로 관리하도록 변경함
 # 해결 / 대안 : 인증키 부여 및 등록작업
 
-- 키 만들기 (이메일은 GitHub 가입 이메일)
+라. SSH 인증키 
+
+i) 키 만들기 (이메일은 GitHub 가입 이메일)
 ssh-keygen -t ed25519 -C "leesj69@gmail.com" → 세 번 다 그냥 Enter
-- 공개키 내용 보기 → 전체 복사 (ssh-ed25519 로 시작해서 이메일로 끝나는 한 줄)
+ii) 공개키 내용 보기 → 전체 복사 (ssh-ed25519 로 시작해서 이메일로 끝나는 한 줄)
 cat ~/.ssh/id_ed25519.pub
 
+<pre>
 codyssey@4F-76:/mnt/c/WINDOWS/system32$ ssh-keygen -t ed25519 -C "leesj69@gmail.com"
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/codyssey/.ssh/id_ed25519):
@@ -400,29 +399,23 @@ The key's randomart image is:
 
 codyssey@4F-76:/mnt/c/WINDOWS/system32$ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgbpAcMhIaE9A00YICSdS75/hhrZ/Q7P0k70XxUaW6+ leesj69@gmail.com   
+</pre>
 
 
+iii)  연결 확인. 처음엔 "Are you sure you want to continue connecting?" 나오면 yes
+ssh -T git@github.com
 
-
- codyssey@5F-112:~/codyssey$ ssh -T git@github.com
+<pre> codyssey@5F-112:~/codyssey$ ssh -T git@github.com
 The authenticity of host 'github.com (20.200.245.247)' can't be established.
 ED25519 key fingerprint is: SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
 This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-
-# 3. 연결 확인. 처음엔 "Are you sure you want to continue connecting?" 나오면 yes
-ssh -T git@github.com
-
-     rm ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
-rm ~/.ssh/known_hosts        # github.com 접속 기록도 같이
-ls -la ~/.ssh                # 비어 있으면 완료
+Are you sure you want to continue connecting (yes/no/[fingerprint])?</pre>
 
 <img width="1217" height="630" alt="image" src="https://github.com/user-attachments/assets/fc958551-5eb3-4db6-a612-f1148b60eed0" />
 
-
-     
+<pre>
+여러명이 사용할때는 필요 아래의 작업을 해야 한다.
+rm ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+rm ~/.ssh/known_hosts        # github.com 접속 기록도 같이
+ls -la ~/.ssh                # 비어 있으면 완료
 </pre>
-
-Docker 파일: Dockerfile이나 docker-compose.yml 같은 설정 파일은 GitHub에 올라가야 다른 환경에서도 똑같이 실행할 수 있습니다.
-VS Code 확장 프로그램: VS Code 왼쪽의 '소스 제어' 아이콘(세 번째 아이콘)을 클릭하면 명령어를 치지 않고도 마우스 클릭만으로 add, commit, push를 할 수 있어 편리합니다.
-
