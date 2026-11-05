@@ -373,7 +373,37 @@ remote: Invalid username or token. Password authentication is not supported for 
 fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
 
 
+# 1. 키 만들기 (이메일은 GitHub 가입 이메일)
+ssh-keygen -t ed25519 -C "leesj69@gmail.com"
+# 저장 위치, 비밀번호, 비밀번호 확인 → 세 번 다 그냥 Enter
 
+# 2. 공개키 내용 보기 → 전체 복사 (ssh-ed25519 로 시작해서 이메일로 끝나는 한 줄)
+cat ~/.ssh/id_ed25519.pub
+
+codyssey@4F-76:/mnt/c/WINDOWS/system32$ ssh-keygen -t ed25519 -C "leesj69@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/codyssey/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/codyssey/.ssh/id_ed25519
+Your public key has been saved in /home/codyssey/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:xOrxicVH+eLVpHv1KofJE19EJNHHr+7XO2heInNr4Pc leesj69@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|              o=.|
+|       .   .   .=|
+|        o o   ..o|
+|       + . . +  o|
+|      o S o + .o.|
+|     . = + +....o|
+|      o o o+oOooo|
+|           .X*Boo|
+|            =B+Eo|
++----[SHA256]-----+
+
+codyssey@4F-76:/mnt/c/WINDOWS/system32$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgbpAcMhIaE9A00YICSdS75/hhrZ/Q7P0k70XxUaW6+ leesj69@gmail.com   
 
 </pre>
 
