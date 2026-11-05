@@ -361,11 +361,11 @@ git commit -m "Initial commit: Docker setup and project files"
 다. GitHub로 전송
 git push -u origin main
 
-# 트러블 슈팅 : 깃에서 깃허브로 관련 파일 업로드시 권한오류 발생
-# 오류 내용   : nvalid username or token. Password authentication is not supported for Git operations.
-fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
-# 원인 및 가설 : 깃허브에서 SSH 인증키로 관리하도록 변경함
-# 해결 / 대안 : 인증키 부여 및 등록작업
+/* 트러블 슈팅 : 깃에서 깃허브로 관련 파일 업로드시 권한오류 발생
+/* 오류 내용   : nvalid username or token. Password authentication is not supported for Git operations.
+                 fatal: Authentication failed for 'https://github.com/joono0609/ia-codyssey.git/'
+/* 원인 및 가설 : 깃허브에서 SSH 인증키로 관리하도록 변경함
+/* 해결 / 대안 : 인증키 부여 및 등록작업
 
 라. SSH 인증키 
 
