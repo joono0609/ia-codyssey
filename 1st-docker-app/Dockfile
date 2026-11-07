@@ -1,6 +1,0 @@
-# 1. Nginx 웹서버를 기반으로 시작
-FROM nginx:latest
-# 2. 내 HTML 파일을 Nginx의 기본 폴더로 복사
-COPY index.html /usr/share/nginx/html/index.html
-# 3. 80번 포트를 사용한다고 알림 (문서화 목적)
-EXPOSE 80
